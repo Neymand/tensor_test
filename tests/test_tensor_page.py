@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 
 chrome_options = Options()
-#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 
 
 @pytest.fixture
