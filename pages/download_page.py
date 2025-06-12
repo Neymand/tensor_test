@@ -1,4 +1,3 @@
-import time
 import requests
 from selenium.webdriver.common.by import By
 from base_page import BasePage
@@ -12,14 +11,15 @@ class DownPage(BasePage):
     DOWNLOAD_LOCAL_VERSION = (By.XPATH, '//*[@id="container"]/div[2]/div[1]/div[2]/div[3]/ul/li[10]/a')
     DOWNLOAD_FILE_LINK = (By.XPATH, '/html/body/div[1]/div[2]/div[1]/div/div[1]/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/div[2]/div[2]/div/a')
 
-    # def __init__(self, driver, download_dir):
-    #     super().__init__(driver)
-    #     self.download_dir = download_dir
-
     def trans_down_page(self):
         self.click_element(self.DOWNLOAD_LOCAL_VERSION)
 
     def download_file(self, download_dir):
+        """
+        Функция получает ссылку на скачивание. Скачивание происходит при помощи requests
+        :param download_dir:
+        :return:
+        """
         element = self.find_element(self.DOWNLOAD_FILE_LINK)
         file_url = element.get_attribute("href")
         response = requests.get(file_url)
@@ -36,7 +36,9 @@ class DownPage(BasePage):
             file.write(response.content)
 
     def get_expected_file_size(self):
-        """Получает ожидаемый размер файла из текста ссылки"""
+        """
+        Получает ожидаемый размер файла из текста ссылки
+        """
         element = self.find_element(self.DOWNLOAD_FILE_LINK)
         text = element.text
         return extract_file_size_from_text(text)

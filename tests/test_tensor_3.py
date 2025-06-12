@@ -25,7 +25,9 @@ def test_download_file(driver):
 
 @pytest.mark.parametrize('driver', ['https://saby.ru/download'], indirect=True)
 def test_file_size(driver):
-    """Тест проверки размера файла"""
+    """
+    Тест проверяет наличие файла, проверяет соответствует ли размер файла указанному на странице.
+    """
     down_page = DownPage(driver)
     download_dir = os.path.join(os.getcwd(), "downloads")  # Папка загрузок по умолчанию
     expected_filename = "saby-setup-web.exe"  # Ожидаемое имя файла
@@ -35,11 +37,10 @@ def test_file_size(driver):
     timeout = 30  # Максимальное время ожидания в секундах
     poll_time = 1  # Время ожидания перед повторной проверкой
     start_time = time.time()
-    # Проверяем что файл существует
-    while time.time() - start_time < timeout:
+
+    while time.time() - start_time < timeout:   # Проверяем что файл существует
         if os.path.exists(file_path):
-            # Проверка завершенности загрузки
-            if os.path.getsize(file_path) > 0:
+            if os.path.getsize(file_path) > 0:  # Проверка завершенности загрузки
                 break
         time.sleep(poll_time)
     else:
