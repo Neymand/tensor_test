@@ -66,6 +66,8 @@ class DownPage(BasePage):
             'difference_percent': (size_diff / expected_size) * 100
         }
 
+
+
 def extract_file_size_from_text(text):
     """
     Извлекает размер файла из текста вида "Скачать (Exe 10.40 МБ)"

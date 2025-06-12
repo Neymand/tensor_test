@@ -35,6 +35,8 @@ def test_is_people_power_block_present(driver):
         pytest.fail("Не удалось найти блок 'Сила в людях' на странице.")
 
 
+
+
 @pytest.mark.parametrize('driver', ['https://tensor.ru/about'], indirect=True)
 def test_work_section_images(driver):
     """

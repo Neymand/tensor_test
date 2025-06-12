@@ -14,7 +14,14 @@ class HomePage(BasePage):
 
         # переход на новое окно, если запущены последовательные тесты
         windows = self.driver.window_handles
-        self.driver.switch_to.window(windows[1])
+        new = self.driver.switch_to.window(windows[1])
+
+    def current_url(self):
+        """Получение URL страницы"""
+        return self.get_current_url()
+
+
+
 
 
 

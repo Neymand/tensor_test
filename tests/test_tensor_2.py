@@ -29,7 +29,7 @@ def test_check_region(driver):
 @pytest.mark.parametrize('driver', ['https://saby.ru/contacts'], indirect=True)
 def test_change_region(driver, location, expected_url):
     """
-    Меняем регионы, проверяем изменения на странице.
+    Меняем регионы, проверяем изменения на странице и изменение URL.
     :param driver:
     :param location:
     :param expected_url:
@@ -38,7 +38,7 @@ def test_change_region(driver, location, expected_url):
     contact_page = ContactPage(driver)
     contact_page.change_region(location)
 
-    # Шаг 4: Проверить, что изменился регион и обновился список партнеров
+    # Проверить, что изменился регион и обновился список партнеров
     contact_page.verify_region_and_partners(location)
 
     # Проверка URL

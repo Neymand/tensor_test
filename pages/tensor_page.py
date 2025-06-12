@@ -29,6 +29,10 @@ class TensorPage(BasePage):
         container = self.find_element(self.WORKING_BLOCK)
         images = container.find_elements(By.TAG_NAME, 'img')
 
+    def current_url(self):
+        """Получение URL страницы"""
+        return self.get_current_url()
+
 
 
 
