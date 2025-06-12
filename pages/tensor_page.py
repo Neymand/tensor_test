@@ -9,23 +9,28 @@ class TensorPage(BasePage):
 
 
     def is_people_power_block_present(self):
-        self.find_element(self.PEOPLE_POWER_BLOCK) # Проверить, что есть блок "Сила в людях"
+        """
+        Проверить, что есть блок "Сила в людях
+        """
+        self.find_element(self.PEOPLE_POWER_BLOCK)
 
 
     def open_tenser_about(self):
-        self.click_element(self.MORE_DETAILS)  # убедитесь, что открывается https://tensor.ru/about
+        """
+        открывается https://tensor.ru/about
+        """
+        self.click_element(self.MORE_DETAILS)
 
     def get_work_section_images(self):
+        """
+        Собиарет картинки со страницы
+        :return:
+        """
         container = self.find_element(self.WORKING_BLOCK)
         images = container.find_elements(By.TAG_NAME, 'img')
 
 
-        # for img in images:
-        #     width = img.get_attribute('width')
-        #     height = img.get_attribute('height')
-        #     src = img.get_attribute('src')
-        #     alt = img.get_attribute('alt')
-        #     print(f"Изображение: {alt}\n  URL: {src}\n  Размер: {width} x {height}\n")
+
 
 
 

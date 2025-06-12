@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 
@@ -14,6 +12,7 @@ class HomePage(BasePage):
         self.click_element(self.MORE_OFFICE)
         self.click_element(self.TENSOR_BANNER)
 
+        # переход на новое окно, если запущены последовательные тесты
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[1])
 
