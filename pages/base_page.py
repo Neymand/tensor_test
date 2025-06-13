@@ -23,7 +23,7 @@ class BasePage:
     def click_element(self, locator, timeout=15):
         element = self.find_element(locator, timeout)
         element.click()
-        time.sleep(2)
+        time.sleep(5)
 
     def get_current_url(self):
         """Возвращает текущий URL страницы"""
